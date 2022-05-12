@@ -1,4 +1,3 @@
-from xmlrpc.client import Boolean
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -7,11 +6,12 @@ import undetected_chromedriver as uc
 
 import json
 
+#Overloading how uc deletes once everything is done, I want to keep the window open
 class ucOpen(uc.Chrome):
     def __del__(self):
         pass
 
-def login_indeed(driver) -> Boolean:
+def login_indeed(driver) -> bool:
 
     with open(r"C:\Users\parkf\Desktop\personalProjects\PythonWebCrawling\loginInfo.Json") as f:
         raw = json.load(f)
